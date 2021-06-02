@@ -41,16 +41,16 @@ class UserCard extends React.Component {
                     <Card.Text><a href={this.props.userData.html_url}>{this.props.userData.login}</a></Card.Text>
                     
                 <Button variant="primary" onClick={this.handleClick}>Followers</Button>
-                {
+                <Card.Body className={this.state.isActive ? null : 'hide'}>
+                <Card.Title>Followers:</Card.Title>
+                    {
                     this.state.followers.map(follower => {
                         return (
-                        <Card.Body className={this.state.isActive ? null : 'hide'} key={follower.id}>
-                                <Card.Title>Followers:</Card.Title>
                                 <Card.Text><li><a href={follower.html_url}>{follower.login}</a></li></Card.Text>
-                        </Card.Body>
-                        )
-                    })
+                                )
+                            })
                     }
+                </Card.Body>
                 </Card.Body>
             </Card>
         )
